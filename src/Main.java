@@ -1,4 +1,5 @@
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
@@ -32,11 +33,11 @@ public class Main {
         // Fourth task
         List <Student> listOfStudents = new ArrayList<>();
 
-        listOfStudents.add(new Student("Alex", 20, Education.Secondary));
-        listOfStudents.add(new Student("James", 21, Education.University));
-        listOfStudents.add(new Student("Howard", 26, Education.University));
-        listOfStudents.add(new Student("Peter", 24, Education.Primary));
-        listOfStudents.add(new Student("Anna", 22, Education.Secondary));
+        listOfStudents.add(new Student("Alex", 20, Education.Secondary, 1));
+        listOfStudents.add(new Student("James", 21, Education.University, 2));
+        listOfStudents.add(new Student("Howard", 26, Education.University, 3));
+        listOfStudents.add(new Student("Peter", 24, Education.Primary, 4));
+        listOfStudents.add(new Student("Anna", 22, Education.Secondary, 5));
 
         for (Student student : new ArrayList<>(listOfStudents)) {
             if (student.getAge() > 25) listOfStudents.remove(student);
@@ -58,5 +59,18 @@ public class Main {
         System.out.println(fruitsList);
         System.out.println(fruitsSet);
         System.out.println(fruitsSet.size());
+
+        // Sixth task
+        Map <Integer, Student> studentsMap = listOfStudents
+                .stream()
+                .collect(Collectors
+                        .toMap(Student:: getID, student -> student));
+
+        System.out.println(studentsMap);
+
+        studentsMap.get(4).setAge(17);
+        studentsMap.get(4).setEducation(Education.Primary);
+
+        System.out.println(studentsMap);
     }
 }
