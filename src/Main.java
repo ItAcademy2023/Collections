@@ -45,12 +45,21 @@ public class Main {
             if (student.getAge() > 25) listOfStudents.remove(student);
         }
 
+//        Iterable <Student> iterableStudents = listOfStudents;
+//        for (Student student : iterableStudents) {
+//            if (student.getAge() > 25) iterableStudents.remove(student);
+//        }
+        // Iterable interface and common?
+        // Why new collection instead of iterating through initial (listOfStudents)?
+
         List <Student> filteredListOfStudents = listOfStudents
                 .stream()
                 .filter(student -> student.getAge() < 25)
                 .toList();
 
 //      students.removeIf(streamStudent -> streamStudent.getAge() > 25); - ?
+
+//      overriding .equals method? compare by address / value?
 
         System.out.println(filteredListOfStudents);
 
@@ -114,7 +123,7 @@ public class Main {
                 .stream()
                 .forEach(game -> game.incrementPrice());
 
-        // Is it okay ?
+        // Is it okay ? Not iterable?
 
         List <Games> newListOfGames = new ArrayList<>(listOfGames)
                 .stream()
