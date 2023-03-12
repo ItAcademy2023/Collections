@@ -45,11 +45,6 @@ public class Main {
             if (student.getAge() > 25) listOfStudents.remove(student);
         }
 
-//        Iterable <Student> iterableStudents = listOfStudents;
-//        for (Student student : iterableStudents) {
-//            if (student.getAge() > 25) iterableStudents.remove(student);
-//        }
-        // Iterable interface and common?
         // Why new collection instead of iterating through initial (listOfStudents)?
 
         List <Student> filteredListOfStudents = listOfStudents
