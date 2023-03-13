@@ -146,8 +146,6 @@ public class Main {
         Game game3 = new Game("Game3", Genre.ACTION, 35.5, 400);
         Game game4 = new Game("Game4", Genre.MMO, 45.5, 500);
         List<Game> games = new ArrayList<>();
-
-
         games.add(game1);
         games.add(game2);
         games.add(game3);
@@ -163,5 +161,43 @@ public class Main {
         }
 
         Collections.reverse(games);
+        //descending
+        games.sort(new Game.PriceComparator().reversed());
+        //ascending
+        games.sort(new Game.PriceComparator());
+
+        //8.0
+        Set<String> gamesMoreThan10 = games.stream()
+                .filter(Game -> Game.getPrice() > 10 && Game.getCopiesSold() > 50)
+                .map(Game::getTitle)
+                .collect(Collectors.toSet());
+        System.out.println("Games with price > 10 and 50 < copies sold " + gamesMoreThan10);
+
+        //9.0
+        List<Game> games2 = new ArrayList<>();
+        Game game11 = new Game("Game1", Genre.STEALTH, 15.5, 1000);
+        Game game22 = new Game("Game2", Genre.RPG, 25.5, 300);
+        Game game33 = new Game("Game3", Genre.ACTION, 35.5, 400);
+        Game game44 = new Game("Game4", Genre.MMO, 45.5, 500);
+
+        games2.add(game11);
+        games2.add(game22);
+        games2.add(game33);
+        games2.add(game44);
+        games2.sort(Comparator.comparing(Game::getCopiesSold));
+        for (Game game : games2) {
+            game.printGame();
+        }
+
+        Integer max = games2.stream()
+                .map(Game::getCopiesSold)
+                .reduce(0, Integer::max);
+        Integer min = games2.stream()
+                .map(Game::getCopiesSold)
+                .reduce(0, Integer::min);
+
+        System.out.println("Maximum is : " + max);
+        System.out.println("Minimum is : " + min);
+
     }
 }

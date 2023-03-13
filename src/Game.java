@@ -1,6 +1,7 @@
 import java.util.Comparator;
 
 public class Game {
+    public static Comparator<? super Game> SalesComparator;
     private String title;
     private Enum genre;
     private Double price;
@@ -64,9 +65,15 @@ public class Game {
                 '}');
     }
 
-    static class Sortbytitle implements Comparator<Game> {
+    static class PriceComparator implements Comparator<Game> {
         public int compare(Game a, Game b) {
-            return a.title.compareTo(b.title);
+            return a.price.compareTo(b.price);
+        }
+    }
+
+    public void incrementPrice(int loopAmount){
+        for (int i = 0;i<loopAmount;i++){
+            setPrice(getPrice()+1);
         }
     }
 }
