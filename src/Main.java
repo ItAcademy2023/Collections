@@ -4,7 +4,6 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        // Why store attributes value in objects type instead of primitive data types?
 
         // First task
         String cars[] = {"Subaru", "BMW", "Suzuki"};
@@ -45,16 +44,10 @@ public class Main {
             if (student.getAge() > 25) listOfStudents.remove(student);
         }
 
-        // Why new collection instead of iterating through initial (listOfStudents)?
-
         List <Student> filteredListOfStudents = listOfStudents
                 .stream()
                 .filter(student -> student.getAge() < 25)
                 .toList();
-
-//      students.removeIf(streamStudent -> streamStudent.getAge() > 25); - ?
-
-//      overriding .equals method? compare by address / value?
 
         System.out.println(filteredListOfStudents);
 
@@ -78,7 +71,6 @@ public class Main {
                 .stream()
                 .collect(Collectors
                         .toMap(Student:: getID, student -> student));
-        // Map only interface? Collectors? ArrayList or List when declare variable?
 
         System.out.println(studentsMap);
 
@@ -117,8 +109,6 @@ public class Main {
         listOfGames
                 .stream()
                 .forEach(game -> game.incrementPrice());
-
-        // Is it okay ? Not iterable?
 
         List <Games> newListOfGames = new ArrayList<>(listOfGames)
                 .stream()
