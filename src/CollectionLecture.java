@@ -39,19 +39,20 @@ public class CollectionLecture {
         System.out.println(uniqueStudent);
 
         Map<Integer, Student> studentsMap = uniqueStudent.stream().collect(Collectors.toMap(Student::getId, student -> student));
+        System.out.println(studentsMap);
 
 
+       studentsMap.put(4, new Student(33, "Karolis", "Primary", 7));
+      System.out.println("Students MAP"+studentsMap);
 
-//        keyValuePairs.put("Karolis", new Student(33, "Karolis", "Primary", 7));
-        System.out.println("Students MAP"+studentsMap);
 
-        ///padaryti!!
-//        students.removeIf(streamstud -> streamstud.getId()=4);
-//        Student modifiedStudent = new Student(99, studentsMap.get(4).getName(), studentsMap.get(4).getGrade(), 4);
+       Student modifiedStudent = new Student(99, studentsMap.get(4).getName(), studentsMap.get(4).getGrade(), 4);
 
-//        System.out.println(keyValuePairs.values());
+        System.out.println(modifiedStudent);
 
-//        System.out.println(keyValuePairs.get("Nora Jones"));
+      System.out.println(studentsMap.values());
+
+        System.out.println(studentsMap.get("Nora Jones"));
     }
 }
 
