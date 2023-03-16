@@ -45,6 +45,6 @@ public class Student {
 
     @Override
     public String toString() {
-        return getClass().getName() + ": [Name: " + name + ", Age: " + age + ", Grade: " + grade + "]";
+        return getClass().getName() + ": [Name: " + getName() + ", Age: " + getAge() + ", Grade: " + getGrade() + "]";
     }
 }

@@ -1,0 +1,3 @@
+public enum Genre {
+    ACTION, ADVENTURE, PUZZLE, RACING, SHOOTER, SIMULATOR, MOBA
+}
